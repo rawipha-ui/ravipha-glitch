@@ -1,1 +1,46 @@
+body {
+  margin: 0;
+  background: black;
+  color: #0ff;
+  text-align: center;
+  font-family: monospace;
+}
 
+canvas {
+  display: block;
+  margin: auto;
+  border: 2px solid #0ff;
+}
+
+/* Glitch Effect */
+.glitch {
+  font-size: 40px;
+  position: relative;
+  color: white;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+}
+
+.glitch::before {
+  color: red;
+  animation: glitch 1s infinite;
+}
+
+.glitch::after {
+  color: blue;
+  animation: glitch 1s infinite reverse;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
